@@ -1,0 +1,250 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="FDR">
+    <Position X="0.5" Y="0.75" Width="10.25" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Typedef Name="FDR::RotationList" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>FlightDisruptionRecovery.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Typedef>
+      <Struct Name="FDR::AircraftInfo">
+        <TypeIdentifier>
+          <NewMemberFileName>FlightDisruptionRecovery.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+      <Typedef Name="FDR::ItinType" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>FlightDisruptionRecovery.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Typedef>
+      <Struct Name="FDR::Output">
+        <TypeIdentifier>
+          <NewMemberFileName>FlightDisruptionRecovery.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+      <Typedef Name="FDR::AircraftInfoMap" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>FlightDisruptionRecovery.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Typedef>
+      <Typedef Name="FDR::Time" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>FlightDisruptionRecovery.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Typedef>
+      <Typedef Name="FDR::Date" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>FlightDisruptionRecovery.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Typedef>
+      <Typedef Name="FDR::AircraftPositionMap" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>FlightDisruptionRecovery.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Typedef>
+      <Typedef Name="FDR::ItinID" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>FlightDisruptionRecovery.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Typedef>
+      <Typedef Name="FDR::AirportsCapacityMap" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>FlightDisruptionRecovery.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Typedef>
+      <Typedef Name="FDR::Model" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>FlightDisruptionRecovery.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Typedef>
+      <Typedef Name="FDR::Duration" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>FlightDisruptionRecovery.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Typedef>
+      <Typedef Name="FDR::AircraftNumOfAirport" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>FlightDisruptionRecovery.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Typedef>
+      <Struct Name="FDR::Dist">
+        <TypeIdentifier>
+          <NewMemberFileName>FlightDisruptionRecovery.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+      <Typedef Name="FDR::FlightID" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>FlightDisruptionRecovery.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Typedef>
+      <Typedef Name="FDR::ItineraryMap" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>FlightDisruptionRecovery.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Typedef>
+      <Typedef Name="FDR::FlightMap" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>FlightDisruptionRecovery.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Typedef>
+      <Struct Name="FDR::AirportsCapacityWithinPeriod">
+        <TypeIdentifier>
+          <NewMemberFileName>FlightDisruptionRecovery.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+      <Typedef Name="FDR::Unit" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>FlightDisruptionRecovery.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Typedef>
+      <Struct Name="FDR::Config">
+        <TypeIdentifier>
+          <NewMemberFileName>FlightDisruptionRecovery.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+      <Struct Name="FDR::Maint">
+        <TypeIdentifier>
+          <NewMemberFileName>FlightDisruptionRecovery.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+      <Struct Name="FDR::AircraftNum">
+        <TypeIdentifier>
+          <NewMemberFileName>FlightDisruptionRecovery.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+      <Typedef Name="FDR::ItinChar" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>FlightDisruptionRecovery.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Typedef>
+      <Struct Name="FDR::Solution">
+        <TypeIdentifier>
+          <NewMemberFileName>FlightDisruptionRecovery.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+      <Typedef Name="FDR::Price" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>FlightDisruptionRecovery.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Typedef>
+      <Struct Name="FDR::Rotation">
+        <TypeIdentifier>
+          <NewMemberFileName>FlightDisruptionRecovery.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+      <Typedef Name="FDR::AltAircraftList" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>FlightDisruptionRecovery.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Typedef>
+      <Typedef Name="FDR::AltFlightList" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>FlightDisruptionRecovery.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Typedef>
+      <Typedef Name="FDR::DistList" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>FlightDisruptionRecovery.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Typedef>
+      <Struct Name="FDR::Settings">
+        <NestedTypes>
+          <Struct Name="FDR::Settings::RecoveryPeriod" Collapsed="true">
+            <TypeIdentifier>
+              <NewMemberFileName>FlightDisruptionRecovery.h</NewMemberFileName>
+            </TypeIdentifier>
+          </Struct>
+          <Struct Name="FDR::Settings::DelayCost" Collapsed="true">
+            <TypeIdentifier>
+              <NewMemberFileName>FlightDisruptionRecovery.h</NewMemberFileName>
+            </TypeIdentifier>
+          </Struct>
+          <Struct Name="FDR::Settings::CancellationCost" Collapsed="true">
+            <TypeIdentifier>
+              <NewMemberFileName>FlightDisruptionRecovery.h</NewMemberFileName>
+            </TypeIdentifier>
+          </Struct>
+          <Struct Name="FDR::Settings::DowngradeCost" Collapsed="true">
+            <TypeIdentifier>
+              <NewMemberFileName>FlightDisruptionRecovery.h</NewMemberFileName>
+            </TypeIdentifier>
+          </Struct>
+        </NestedTypes>
+        <TypeIdentifier>
+          <NewMemberFileName>FlightDisruptionRecovery.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+      <Typedef Name="FDR::Cabin" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>FlightDisruptionRecovery.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Typedef>
+      <Typedef Name="FDR::Airport" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>FlightDisruptionRecovery.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Typedef>
+      <Struct Name="FDR::AltAirport">
+        <TypeIdentifier>
+          <NewMemberFileName>FlightDisruptionRecovery.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+      <Struct Name="FDR::AltAircraft">
+        <TypeIdentifier>
+          <NewMemberFileName>FlightDisruptionRecovery.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+      <Typedef Name="FDR::Family" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>FlightDisruptionRecovery.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Typedef>
+      <Struct Name="FDR::Flight">
+        <TypeIdentifier>
+          <NewMemberFileName>FlightDisruptionRecovery.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+      <Typedef Name="FDR::AltAirportList" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>FlightDisruptionRecovery.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Typedef>
+      <Struct Name="FDR::Itinerary">
+        <NestedTypes>
+          <Struct Name="FDR::Itinerary::FlightArrange" Collapsed="true">
+            <TypeIdentifier>
+              <NewMemberFileName>FlightDisruptionRecovery.h</NewMemberFileName>
+            </TypeIdentifier>
+          </Struct>
+        </NestedTypes>
+        <TypeIdentifier>
+          <NewMemberFileName>FlightDisruptionRecovery.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+      <Typedef Name="FDR::AirportsCapacity" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>FlightDisruptionRecovery.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Typedef>
+      <Struct Name="FDR::AltFlight">
+        <TypeIdentifier>
+          <NewMemberFileName>FlightDisruptionRecovery.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+      <Struct Name="FDR::Aircraft">
+        <TypeIdentifier>
+          <NewMemberFileName>FlightDisruptionRecovery.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>MgQAACAAAAAIIgABAAAEAAAAAIAACBJEAAAAIAACkAE=</HashCode>
+      <FileName>FlightDisruptionRecovery.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Microsoft YaHei UI" Size="9" />
+</ClassDiagram>
