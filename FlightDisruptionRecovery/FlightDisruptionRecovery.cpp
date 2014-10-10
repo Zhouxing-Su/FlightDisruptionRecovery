@@ -46,15 +46,8 @@ void FDR::init()
     genInitSolution();
 }
 
-
-void FDR::solve( int maxIterCount, int maxNoImproveCount,
-    int tabuTenureAssign, int tabuTenureOpenMedian, int tabuTenureCloseMedian, int randomWalkStep )
+void FDR::solve()
 {
-    MAX_ITER_COUNT = maxIterCount;
-    MAX_NO_IMPROVE_COUNT = maxNoImproveCount;
-    TABU_TENURE_BASE = tabuTenureAssign;
-    PERTURB_STRENGTH = randomWalkStep;
-
     std::ostringstream ss;
     ss << "basic(";
     solvingAlgorithm = ss.str();
@@ -63,11 +56,8 @@ void FDR::solve( int maxIterCount, int maxNoImproveCount,
 
     RangeRand rr( 1, 3 );
 
-    while (iterCount++ < MAX_ITER_COUNT) {
+    // TODO:
 
-    }
-    Log<>::write( "[optimaReachCount] " );
-    Log<int>::writeln( optimaReachCount );
 }
 
 

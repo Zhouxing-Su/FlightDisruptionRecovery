@@ -10,7 +10,14 @@ using namespace ROADEF2009;
 
 int main()
 {
-    FDR fdr = readInstance( "../instance/A01/" );
+    const string logFileName = "log.csv";
+    const string InstanceFileName = "../instance/A01/";
+
+    ofstream csvFile( logFileName );
+    FDR fdr = readInstance( InstanceFileName );
+    fdr.solve();
+    fdr.check();
+    fdr.appendResultToSheet( InstanceFileName, csvFile );
 
     return 0;
 }

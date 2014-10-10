@@ -346,13 +346,17 @@ public:
         const AltAirportList &altAirportList );
     ~FDR();
 
-    void solve( int maxIterCount, int maxNoImproveCount, int tabuTenureAssign, int tabuTenureOpenMedian, int tabuTenureCloseMedian, int randomWalkStep );
+    void solve();
     bool check() const;
 
     void printOptima( std::ostream &os ) const;
 
     static void initResultSheet( std::ofstream &csvFile );
     void appendResultToSheet( const std::string &instanceFileName, std::ofstream &csvFile ) const;
+
+
+
+
 
 private:
     ///= given information
