@@ -34,7 +34,7 @@ public:
 
     typedef std::string Airport;    // three-character string corresponding to the IATA three-letter code of an airport
     // character specifying whether the itinerary corresponds to the outbound
-    // portion of a trip ( A for aller in French ) and to the inbound or return portion of a trip( R )
+    // portion of a trip( A ) and to the inbound or return portion of a trip( R )
     typedef char ItinChar;
     // character specifying the flight type or the itinerary type( D for domestic,
     // C for continental, I for Intercontinental, P for proximity )
@@ -156,6 +156,7 @@ public:
         }
     };
 
+    ///= data structures for reading instances
     struct Settings
     {
         struct RecoveryPeriod
@@ -211,14 +212,20 @@ public:
     typedef std::vector<AirportsCapacityWithinPeriod> AirportsCapacity;
     typedef std::map<Airport, AirportsCapacity> AirportsCapacityMap;
 
+    struct Distance
+    {
+        Duration duration;
+        ItinType itinType;
+
+        Distance( Duration d = 0, ItinType i = 0 ) :duration( d ), itinType( i ) {}
+    };
     struct Dist
     {
         Airport origin;
         Airport destination;
-        Duration duration;
-        ItinType itinType;
+        Distance distance;
     };
-    typedef std::vector<Dist> DistList;
+    typedef std::vector<Dist> DistList; // assume it contains n*(n-1) elements for n airports
 
     struct Flight
     {
@@ -251,9 +258,13 @@ public:
     {
         FlightID flightID;
         Date depDate;
-        Aircraft aircraft;
+
+        friend bool operator<(const Rotation& l, const Rotation& r)
+        {
+            return (l.flightID == r.flightID) ? (l.depDate < r.depDate) : (l.flightID < r.flightID);
+        }
     };
-    typedef std::vector<Rotation> RotationList;
+    typedef std::map<Rotation, Aircraft> RotationMap;
 
     struct Itinerary
     {
@@ -270,14 +281,14 @@ public:
     };
     typedef std::map<ItinID, Itinerary> ItineraryMap;
 
-    struct AircraftNum
+    struct RequiredAircraftNum
     {
         Model model;
         Config config;
         int num;
     };
-    typedef std::vector<AircraftNum> AircraftNumOfAirport;
-    typedef std::map<Airport, AircraftNumOfAirport> AircraftPositionMap;
+    typedef std::vector<RequiredAircraftNum> RequiredAircraftNumOfAirport;
+    typedef std::map<Airport, RequiredAircraftNumOfAirport> RequiredAircraftPositionMap;
 
     struct AltFlight
     {
@@ -311,6 +322,7 @@ public:
     };
     typedef std::vector<AltAirport> AltAirportList;
 
+
 private:
     struct Solution;
 public:
@@ -326,8 +338,12 @@ public:
         double duration;
     };
 
-    // the map from indices to vertex of demand should be the same as the ug.
-    FDR();
+    FDR( const Settings &settings, const AirportsCapacityMap &airportsCapacityMap,
+        const DistList &distList, const FlightMap &flightMap, const AircraftInfoMap &aircraftInfoMap,
+        const RotationMap &rotationMap, const ItineraryMap &itineraryMap,
+        const RequiredAircraftPositionMap &requiredAircraftPositionMap,
+        const AltFlightList &altFlightList, const AltAircraftList &altAircraftList,
+        const AltAirportList &altAirportList );
     ~FDR();
 
     void solve( int maxIterCount, int maxNoImproveCount, int tabuTenureAssign, int tabuTenureOpenMedian, int tabuTenureCloseMedian, int randomWalkStep );
@@ -339,6 +355,81 @@ public:
     void appendResultToSheet( const std::string &instanceFileName, std::ofstream &csvFile ) const;
 
 private:
+    ///= given information
+    // serialize airports
+    std::map<std::string, int> airportSerialMap;
+    std::vector<std::string> airportCodeList;
+
+    Settings settings;
+    AirportsCapacityMap airportsCapacityMap;
+    std::vector<std::vector<Distance> > distMat;
+    FlightMap flightMap;
+    AircraftInfoMap aircraftInfoMap;
+    RotationMap rotationMap;
+    ItineraryMap itineraryMap;
+    RequiredAircraftPositionMap requiredAircraftPositionMap;
+    AltFlightList altFlightList;
+    AltAircraftList altAircraftList;
+    AltAirportList altAirportList;
+
+    ///= objective value updating
+    typedef std::map<Family, int> AircraftNumByFamily;
+    typedef std::map<Model, int> AircraftNumByModel;
+    typedef std::map<Model, int> AircraftNumByConfig;
+    struct AircraftNumOfAirport
+    {
+        AircraftNumByFamily aircraftNumByFamily;
+        AircraftNumByModel aircraftNumByModel;
+        AircraftNumByConfig aircraftNumByConfig;
+    };
+    typedef std::map<Airport, AircraftNumOfAirport> AircraftPositionMap;
+
+    static Price getCancellationLegalCompensation( Duration plannedDuration )
+    {
+        if (plannedDuration == 0) {
+            return 0;
+        } else if (plannedDuration < 120) {
+            return 250;
+        } else if (plannedDuration < 270) {
+            return 400;
+        } else {
+            return 600;
+        }
+    }
+
+    static Price getDelayLegalCompensation( Duration plannedDuration, Duration delay )
+    {
+        if (delay > 300) {
+            return 75;
+        } else if (delay > 240) {
+            return 15;
+        } else if (delay > 180) {
+            if (plannedDuration < 270) {
+                return 15;
+            }
+        } else if (delay > 120) {
+            if (plannedDuration < 120) {
+                return 15;
+            }
+        }
+
+        return 0;
+    }
+
+
+    ///= data structures about solution
+    struct RotationInfo
+    {
+        Airport origin;
+        Airport destination;
+        Time depTime;
+        Time arrTime;
+        int prevFlight;
+        Aircraft aircraft;
+    };
+    typedef std::map<Rotation, RotationInfo> SlnRotationMap;
+    typedef ItineraryMap SlnItineraryMap;
+
     struct Solution
     {
         Solution() {}
@@ -347,6 +438,9 @@ private:
         }
 
         Unit obj;
+
+        SlnRotationMap slnRotationMap;
+        SlnItineraryMap slnItineraryMap;
 
         FDR const *fdr;
     };

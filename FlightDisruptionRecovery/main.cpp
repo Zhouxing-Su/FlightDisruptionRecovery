@@ -10,7 +10,7 @@ using namespace ROADEF2009;
 
 int main()
 {
-    readInstance( "../instance/A01/" );
+    FDR fdr = readInstance( "../instance/A01/" );
 
     return 0;
 }

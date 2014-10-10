@@ -82,6 +82,7 @@
     <ClCompile Include="..\CPPutilibs\Timer.cpp" />
     <ClCompile Include="FlightDisruptionRecovery.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="ROADEF2009.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\CPPutilibs\Log.h" />
@@ -91,6 +92,9 @@
     <ClInclude Include="..\CPPutilibs\Timer.h" />
     <ClInclude Include="FlightDisruptionRecovery.h" />
     <ClInclude Include="ROADEF2009.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

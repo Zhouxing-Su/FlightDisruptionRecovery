@@ -2,10 +2,30 @@
 
 using namespace std;
 
-FDR::FDR()
+FDR::FDR( const Settings &s, const AirportsCapacityMap &acm, const DistList &d,
+    const FlightMap &fm, const AircraftInfoMap &aim, const RotationMap &rm,
+    const ItineraryMap &im, const RequiredAircraftPositionMap &rapm,
+    const AltFlightList &afl, const AltAircraftList &aacl, const AltAirportList &aapl )
+    : airportCodeList( acm.size() ), airportSerialMap(), settings( s ),
+    airportsCapacityMap( acm ), distMat( acm.size(), vector<Distance>( acm.size(), 0 ) ),
+    flightMap( fm ), aircraftInfoMap( aim ), rotationMap( rm ), itineraryMap( im ),
+    requiredAircraftPositionMap( rapm ), altFlightList( afl ), altAircraftList( aacl ), altAirportList( aapl )
 {
     Random::setSeed();
-    Debug<unsigned>::writeln( Random::getSeed() );
+    //Debug<unsigned>::writeln( Random::getSeed() );
+
+    int i = 0;
+    for (AirportsCapacityMap::const_iterator iter = acm.begin(); iter != acm.end(); iter++) {
+        airportCodeList[i] = iter->first;
+        airportSerialMap[iter->first] = i;
+    }
+
+    for (DistList::const_iterator iter = d.begin(); iter != d.end(); iter++) {
+        int origin = airportSerialMap[iter->origin];
+        int destination = airportSerialMap[iter->destination];
+        distMat[origin][destination] = iter->distance;
+        distMat[destination][origin] = iter->distance;
+    }
 }
 
 FDR::~FDR()
